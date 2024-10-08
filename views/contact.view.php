@@ -61,30 +61,30 @@
 				<div class="form-group">
 					<div class="col-xs-6">
 						<label class="label-control">First Name</label>
-						<input class="form-control" type="text" id="nombre" name="nombre" value="<?php if (!empty($errores) && isset($nombre)) echo $nombre ?>">
+						<input class="form-control" type="text" id="nombre" name="nombre" value="<?php if (!empty($errores)) echo $nombre ?>">
 					</div>
 					<div class="col-xs-6">
 						<label class="label-control">Last Name</label>
-						<input class="form-control" type="text" id="apellido" name="apellido" value="<?php if (!empty($errores) && isset($apellido)) echo $apellido ?>">
+						<input class="form-control" type="text" id="apellido" name="apellido" value="<?php if (!empty($errores)) echo $apellido ?>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-xs-12">
 						<label class="label-control">Email</label>
-						<input class="form-control" type="text" id="correo" name="correo" value="<?php if (!empty($errores) && isset($correo)) echo $correo ?>">
+						<input class="form-control" type="text" id="correo" name="correo" value="<?php if (!empty($errores)) echo $correo ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12">
 						<label class="label-control">Subject</label>
-						<input class="form-control" type="text" id="asunto" name="asunto" value="<?php if (!empty($errores) && isset($asunto)) echo $asunto ?>">
+						<input class="form-control" type="text" id="asunto" name="asunto" value="<?php if (!empty($errores)) echo $asunto ?>">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12">
 						<label class="label-control">Message</label>
-						<textarea class="form-control" id="mensaje" name="mensaje"><?php if (!empty($errores) && isset($mensaje)) echo $mensaje ?></textarea>
+						<textarea class="form-control" id="mensaje" name="mensaje"><?php if (!empty($errores)) echo $mensaje ?></textarea>
 						<button class="pull-right btn btn-lg sr-button">SEND</button>
 					</div>
 				</div>
