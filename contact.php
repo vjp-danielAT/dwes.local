@@ -1,5 +1,7 @@
 <?php
 
+require 'utils/utils.php';
+
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
