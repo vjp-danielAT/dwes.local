@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($nombre)) {
         $errores[] = 'El nombre no puede estar vacío';
     }
-
+    
     if (empty($correo)) {
         $errores[] = 'La dirección de correo no puede estar vacía';
     } else if (filter_var($correo, FILTER_VALIDATE_EMAIL) === false) {
@@ -22,6 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($asunto)) {
         $errores[] = 'El asunto no puede estar vacío';
     }
+
+    $datos = [
+        'Nombre' => $nombre,
+        'Apellido' => $apellido,
+        'Correo' => $correo,
+        'Asunto' => $asunto,
+        'Mensaje' => $mensaje
+    ];
 }
 
 require 'views/contact.view.php';

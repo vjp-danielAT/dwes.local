@@ -45,14 +45,14 @@
 				</div>
 			<?php endif; ?>
 
-			<?php if (empty($errores) && isset($nombre)): ?>
+			<?php if (empty($errores) && isset($datos)): ?>
 				<div class="alert alert-info">
 					<ul>
-						<li>Nombre: <?php echo $nombre ?></li>
-						<li>Apellido: <?php echo $apellido ?></li>
-						<li>Correo: <?php echo $correo ?></li>
-						<li>Asunto: <?php echo $asunto ?></li>
-						<li>Mensaje: <?php echo $mensaje ?></li>
+						<?php foreach ($datos as $clave => $valor): ?>
+							<?php if (!empty($valor)): ?>
+								<li><?php echo $clave, ': ', $valor ?></li>
+							<?php endif; ?>
+						<?php endforeach; ?>
 					</ul>
 				</div>
 			<?php endif; ?>
