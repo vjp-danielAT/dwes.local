@@ -10,7 +10,7 @@
 			<hr>
 			<p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
-			
+			<!-- Muestra los errores que el usuario haya podido cometer -->
 			<?php if (!empty($errores)): ?>
 				<div class="alert alert-danger">
 					<ul>
@@ -21,6 +21,7 @@
 				</div>
 			<?php endif; ?>
 
+			<!-- Muestra los datos del usuario si todo es correcto -->
 			<?php if (empty($errores) && isset($datos)): ?>
 				<div class="alert alert-info">
 					<ul>

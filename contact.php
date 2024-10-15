@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $asunto = trim(htmlspecialchars($_POST['asunto']));
     $mensaje = trim(htmlspecialchars($_POST['mensaje']));
 
+    // Compruebo que los datos obligatorios no estén vacíos y valido el correo
     if (empty($nombre)) {
         $errores[] = 'El nombre no puede estar vacío';
     }
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = 'El asunto no puede estar vacío';
     }
 
+    // Este array se usa en la vista para mostrar los datos con un bucle
     $datos = [
         'Nombre' => $nombre,
         'Apellido' => $apellido,
