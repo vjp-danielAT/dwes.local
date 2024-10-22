@@ -1,7 +1,7 @@
 <?php
 
 require 'utils/utils.php';
-require 'entity/imagenGaleria.class.php';
+require_once 'entity/imagenGaleria.class.php';
 
 $imagenes = [];
 
