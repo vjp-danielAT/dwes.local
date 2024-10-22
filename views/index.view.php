@@ -40,21 +40,18 @@
 
       <div id="category1" class="tab-pane active">
         <?php
-        shuffle($imagenes);
         require 'views/partials/imagegallery.part.php';
         ?>
       </div>
 
       <div id="category2" class="tab-pane">
         <?php
-        shuffle($imagenes);
         require 'views/partials/imagegallery.part.php';
         ?>
       </div>
 
       <div id="category3" class="tab-pane">
         <?php
-        shuffle($imagenes);
         require 'views/partials/imagegallery.part.php';
         ?>
       </div>
