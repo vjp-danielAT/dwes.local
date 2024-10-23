@@ -38,6 +38,7 @@
     <!-- Navigation Table Content -->
     <div class="tab-content">
 
+      <!-- Crea 3 galerías de objetos, cada una con su categoría y muestra la primera por defecto -->
       <?php for ($i = 1; $i <= 3; $i++): ?>
         <div id="<?= 'category' . $i ?>" class="tab-pane <?php if ($i == 1) echo 'active' ?>">
           <?php
