@@ -38,23 +38,13 @@
     <!-- Navigation Table Content -->
     <div class="tab-content">
 
-      <div id="category1" class="tab-pane active">
-        <?php
-        require 'views/partials/imagegallery.part.php';
-        ?>
-      </div>
-
-      <div id="category2" class="tab-pane">
-        <?php
-        require 'views/partials/imagegallery.part.php';
-        ?>
-      </div>
-
-      <div id="category3" class="tab-pane">
-        <?php
-        require 'views/partials/imagegallery.part.php';
-        ?>
-      </div>
+      <?php for ($i = 1; $i <= 3; $i++): ?>
+        <div id="<?= 'category' . $i ?>" class="tab-pane <?php if ($i == 1) echo 'active' ?>">
+          <?php
+          require 'views/partials/imagegallery.part.php';
+          ?>
+        </div>
+      <?php endfor; ?>
 
     </div>
     <!-- End of Navigation Table Content -->
