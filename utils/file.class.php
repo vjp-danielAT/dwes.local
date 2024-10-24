@@ -1,7 +1,8 @@
 <?php
 
-class File
-{
+require_once __DIR__ . '/../exceptions/fileException.class.php';
+
+class File {
     private $file;
     private $fileName;
 
@@ -12,7 +13,7 @@ class File
         $this->fileName = '';
 
         if (!isset($this->file)) {
-            // error
+            throw new FileException('Debes seleccionar un fichero');
         }
 
         // Verifica errores durante la subida
@@ -20,17 +21,20 @@ class File
             switch ($this->file['error']) {
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
+                    throw new FileException('El fichero es demasiado grande');
                     break;
                 case UPLOAD_ERR_PARTIAL:
+                    throw new FileException('No se ha podido subir el fichero completo');
                     break;
                 default:
+                    throw new FileException('No se ha podido subir el fichero');
                     break;
             }
         }
 
         // Comprueba si el tipo del fichero se soporta en nuestro servidor
         if (in_array($this->file['type'], $arrTypes) === false) {
-            // error
+            throw new FileException('Tipo de fichero no soportado');
         }
     }
 
