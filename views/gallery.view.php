@@ -23,7 +23,7 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Muestra los datos del usuario si todo es correcto -->
+            <!-- Muestra el mensaje de que todo ha ido correctamente -->
             <?php if (isset($mensaje)): ?>
                 <div class="alert alert-info alert-dismissibre" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

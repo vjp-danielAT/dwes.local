@@ -12,7 +12,8 @@ class File {
         $this->file = $_FILES[$fileName];
         $this->fileName = '';
 
-        if (!isset($this->file)) {
+        // Si el fichero no tiene nombre es porque no hemos subido nada
+        if (empty($this->file['name'])) {
             throw new FileException('Debes seleccionar un fichero');
         }
 
