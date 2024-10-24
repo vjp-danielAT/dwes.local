@@ -8,4 +8,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$mensaje = 'Datos enviados';
 }
 
-require 'views/galeria.view.php';
+require 'views/galerry.view.php';
