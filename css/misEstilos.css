@@ -1,0 +1,40 @@
+/* Estilos del título */
+
+.miTitulo {
+    color: black !important;
+    letter-spacing: 10px !important;
+}
+
+/* Colores de la barra de navegación */
+
+.miNav li:nth-child(1) a {
+    color: lightcoral !important;
+}
+
+.miNav li:nth-child(2) a {
+    color: #e5abfc !important;
+}
+
+.miNav li:nth-child(3) a {
+    color: rgb(153, 227, 252) !important;
+}
+
+.miNav li:nth-child(4) a {
+    color: lightgreen !important;
+}
+
+.miNav li:nth-child(1):hover a, .miNav li:nth-child(1).active a {
+    color: rgb(252, 49, 49) !important;
+}
+
+.miNav li:nth-child(2):hover a, .miNav li:nth-child(2).active a {
+    color: #ca49fd !important;
+}
+
+.miNav li:nth-child(3):hover a, .miNav li:nth-child(3).active a {
+    color: rgb(24, 192, 248) !important;
+}
+
+.miNav li:nth-child(4):hover a, .miNav li:nth-child(4).active a {
+    color: rgb(0, 255, 0) !important;
+}

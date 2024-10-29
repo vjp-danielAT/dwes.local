@@ -10,10 +10,10 @@
     <div class="col-xs-12 intro">
       <div class="carousel-inner">
         <div class="item active">
-          <img class="img-responsive" src="images/index/woman.jpg" alt="header picture">
+          <img class="img-responsive" src="images/index/paisaje.jpg" alt="header picture">
         </div>
         <div class="carousel-caption">
-          <h1>FIND NICE PICTURES HERE</h1>
+          <h1>DWES.LOCAL</h1>
           <hr>
         </div>
       </div>
@@ -26,9 +26,9 @@
       <table class="table text-center">
         <thead>
           <tr>
-            <td><a class="link active" href="#category1" data-toggle="tab">category I</a></td>
-            <td><a class="link" href="#category2" data-toggle="tab">category II</a></td>
-            <td><a class="link" href="#category3" data-toggle="tab">category III</a></td>
+            <td><a class="link active" href="#category1" data-toggle="tab">Category I</a></td>
+            <td><a class="link" href="#category2" data-toggle="tab">Category II</a></td>
+            <td><a class="link" href="#category3" data-toggle="tab">Category III</a></td>
           </tr>
         </thead>
       </table>
