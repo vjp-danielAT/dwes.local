@@ -3,6 +3,7 @@ require 'utils/utils.php';
 require_once 'utils/file.class.php';
 
 $descripcion = '';
+$error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	try {
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		$mensaje = 'Datos enviados';
 	} catch (FileException $exc) {
-		$errores[] = $exc->getMessage();
+		$error = $exc->getMessage();
 	}
 }
 

@@ -25,3 +25,13 @@ function generarActiveBlogPost($opciones) {
         echo 'active';
     }
 }
+
+/* Devuelve una cadena que genera un tipo de div u otro dependiendo
+de si hay errores en la subida de imágenes o no */
+function errorOMensaje($error) {
+    if (empty($error)) {
+        return 'info';
+    } else {
+        return 'danger';
+    }
+}

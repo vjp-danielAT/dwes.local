@@ -9,27 +9,19 @@
             <h1>GALERÍA</h1>
             <hr>
 
-            <!-- Muestra los errores que el usuario haya podido cometer -->
-            <?php if (isset($errores)): ?>
-                <div class="alert alert-danger alert-dismissibre" role="alert">
+            <!-- Muestra el mensaje de que todo ha ido bien o el error correspondiente -->
+            <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+                <div class="alert alert-<?= errorOMensaje($error) ?> alert-dismissibre" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
                     </button>
-                    <ul>
-                        <?php foreach ($errores as $error): ?>
-                            <li><?= $error ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-
-            <!-- Muestra el mensaje de que todo ha ido correctamente -->
-            <?php if (isset($mensaje)): ?>
-                <div class="alert alert-info alert-dismissibre" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                    <p><?= $mensaje ?></p>
+                    <p>
+                        <?php if(empty($error)): ?>
+                            <?= $mensaje ?>
+                        <?php else: ?>
+                            <?= $error ?>
+                        <?php endif; ?>
+                    </p>
                 </div>
             <?php endif; ?>
 
