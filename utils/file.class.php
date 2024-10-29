@@ -39,6 +39,29 @@ class File {
         }
     }
 
+    // Guarda una imagen subida en nuestra galería
+    public function saveUploadFile($rutaDestino) {
+
+        // Comprueba que el fichero se haya subido por post
+        if (is_uploaded_file($this->file['tmp_name']) === false) {
+            throw new FileException('El archivo no se ha subido mediante el formulario');
+        }
+
+        $this->fileName = $this->file['name'];
+        $ruta = $rutaDestino . $this->fileName;
+
+        /* Si existe el fichero en nuestra galería, le asignamos un número
+        al final del nombre */
+        if (is_file($ruta)) {
+            $i = 1;
+
+            while (is_file($rutaDestino . $this->fileName . '' . $i . '')) {
+                $this->fileName = $this->fileName . '(' . $i . ')';
+                $i++;
+            }
+        }
+    }
+
     public function getFileName() {
         return $this->fileName;
     }
