@@ -8,7 +8,7 @@
 /* Colores de la barra de navegación */
 
 .miNav li:nth-child(1) a {
-    color: lightcoral !important;
+    color: rgb(247, 145, 145) !important;
 }
 
 .miNav li:nth-child(2) a {

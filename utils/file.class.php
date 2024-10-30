@@ -55,10 +55,46 @@ class File {
         if (is_file($ruta)) {
             $i = 1;
 
-            while (is_file($rutaDestino . $this->fileName . '' . $i . '')) {
-                $this->fileName = $this->fileName . '(' . $i . ')';
+            /* Busco la posición del último punto existente en el nombre del
+            fichero, que será el que precede al tipo de extensión del mismo,
+            e introduzco el substring '(1)' en dicha posición. Por ejemplo,
+            imagen.jpg pasaría a llamarse imagen(1).jpg */
+            $this->fileName = substr_replace($this->fileName, '(' . $i . ')', strrpos($this->fileName, '.'), 0);
+
+            // Compruebo que tampoco exista ese fichero
+            while (is_file($rutaDestino . $this->fileName)) {
                 $i++;
+
+                /* Como ese fichero también existía, ahora reemplazo el número
+                entre paréntesis por la siguiente cifra. Por ejemplo,
+                imagen(10).jpg pasaría a llamarse imagen(11).jpg */
+                $this->fileName = substr_replace($this->fileName, $i, strrpos($this->fileName, $i - 1), strlen($i - 1));
             }
+
+            $ruta = $rutaDestino . $this->fileName;
+        }
+
+        // Devuelve false si no logra mover el fichero
+        if (move_uploaded_file($this->file['tmp_name'], $ruta) === false) {
+            throw new FileException('No se puede mover el fichero a su destino');
+        }
+    }
+
+    // Copia una imagen del directorio gallery a portfolio
+    public function copyFile ($rutaOrigen, $rutaDestino) {
+        $origen = $rutaOrigen . $this->fileName;
+        $destino = $rutaDestino . $this->fileName;
+
+        if (is_file($origen) === false) {
+            throw new FileException("No existe el fichero $origen que intentas copiar");
+        }
+
+        if (is_file($destino)) {
+            throw new FileException("El fichero $destino ya existe y no se puede sobreescribir");
+        }
+
+        if (copy($origen, $destino) === false) {
+            throw new FileException("No se ha podido copiar el fichero $origen a $destino");
         }
     }
 
