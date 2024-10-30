@@ -36,7 +36,7 @@ class File {
 
         // Comprueba si el tipo del fichero se soporta en nuestro servidor
         if (in_array($this->file['type'], $arrTypes) === false) {
-            throw new FileException('Tipo de fichero no soportado');
+            throw new FileException(ERRORES[UPLOAD_ERR_EXTENSION]);
         }
     }
 

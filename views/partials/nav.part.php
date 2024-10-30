@@ -18,7 +18,8 @@
               <li class="<?php generarActive('/about.php') ?> lien"><a href="<?php generarHref('/about.php') ?>"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
               <li class="<?php generarActiveBlogPost(['/blog.php', '/single_post.php']) ?> lien"><a href="<?php generarHref('/blog.php') ?>"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
               <li class="<?php generarActive('/contact.php') ?> lien"><a href="<?php generarHref('/contact.php') ?>"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
-              <li class="<?php generarActive('/gallery.php') ?>"><a href="<?php generarHref('/gallery.php') ?>"><i class="fa fa-image sr-icons"></i> Gallery</a></li>
+              <li class="<?php generarActive('/gallery.php') ?> lien"><a href="<?php generarHref('/gallery.php') ?>"><i class="fa fa-image sr-icons"></i> Gallery</a></li>
+              <li class="<?php generarActive('/partners.php') ?>"><a href="<?php generarHref('/partners.php') ?>"><i class="fa fa-hand-o-right sr-icons"></i> Partners</a></li>
             </ul>
          </div>
      </div>

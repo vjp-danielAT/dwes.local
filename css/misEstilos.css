@@ -5,6 +5,13 @@
     letter-spacing: 10px !important;
 }
 
+/* Estilos de los asociados */
+
+img.miAsociado {
+    border: 1px solid black !important;
+    border-radius: 5px !important;
+}
+
 /* Colores de la barra de navegación */
 
 /* Index */
@@ -55,4 +62,14 @@
 
 .miNav li:nth-child(5):hover a, .miNav li:nth-child(5).active a {
     color: rgb(247, 66, 156) !important;
+}
+
+/* Partners */
+
+.miNav li:nth-child(6) a {
+    color: rgb(255, 206, 114) !important;
+}
+
+.miNav li:nth-child(6):hover a, .miNav li:nth-child(6).active a {
+    color: rgb(255, 166, 0) !important;
 }

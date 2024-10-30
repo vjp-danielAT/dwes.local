@@ -8,5 +8,5 @@ const ERRORES = [
     UPLOAD_ERR_NO_FILE => 'Debes seleccionar un fichero',
     UPLOAD_ERR_NO_TMP_DIR => '',
     UPLOAD_ERR_CANT_WRITE => '',
-    UPLOAD_ERR_EXTENSION => ''
+    UPLOAD_ERR_EXTENSION => 'Tipo de fichero no soportado'
 ];
