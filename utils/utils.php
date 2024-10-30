@@ -35,3 +35,10 @@ function errorOMensaje($error) {
         return 'danger';
     }
 }
+
+// Extrae 3 elementos aleatorios de un array
+function extraer3Aleatorios($array) {
+    shuffle($array);
+    $tresAleatorios = array_slice($array, 0, 3);
+    return $tresAleatorios;
+}

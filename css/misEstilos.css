@@ -7,34 +7,52 @@
 
 /* Colores de la barra de navegación */
 
+/* Index */
+
 .miNav li:nth-child(1) a {
     color: rgb(247, 145, 145) !important;
-}
-
-.miNav li:nth-child(2) a {
-    color: #e5abfc !important;
-}
-
-.miNav li:nth-child(3) a {
-    color: rgb(153, 227, 252) !important;
-}
-
-.miNav li:nth-child(4) a {
-    color: lightgreen !important;
 }
 
 .miNav li:nth-child(1):hover a, .miNav li:nth-child(1).active a {
     color: rgb(252, 49, 49) !important;
 }
 
+/* About */
+
+.miNav li:nth-child(2) a {
+    color: #e5abfc !important;
+}
+
 .miNav li:nth-child(2):hover a, .miNav li:nth-child(2).active a {
     color: #ca49fd !important;
+}
+
+/* Blog */
+
+.miNav li:nth-child(3) a {
+    color: rgb(153, 227, 252) !important;
 }
 
 .miNav li:nth-child(3):hover a, .miNav li:nth-child(3).active a {
     color: rgb(24, 192, 248) !important;
 }
 
+/* Contact */
+
+.miNav li:nth-child(4) a {
+    color: rgb(132, 247, 132) !important;
+}
+
 .miNav li:nth-child(4):hover a, .miNav li:nth-child(4).active a {
     color: rgb(0, 255, 0) !important;
+}
+
+/* Gallery */
+
+.miNav li:nth-child(5) a {
+    color: rgb(252, 152, 202) !important;
+}
+
+.miNav li:nth-child(5):hover a, .miNav li:nth-child(5).active a {
+    color: rgb(247, 66, 156) !important;
 }

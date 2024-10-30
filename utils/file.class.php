@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../exceptions/fileException.class.php';
+require_once 'utils/errores.php';
 
 class File {
     private $file;
@@ -14,7 +15,7 @@ class File {
 
         // Si el fichero no tiene nombre es porque no hemos subido nada
         if (empty($this->file['name'])) {
-            throw new FileException('Debes seleccionar un fichero');
+            throw new FileException(ERRORES[UPLOAD_ERR_NO_FILE]);
         }
 
         // Verifica errores durante la subida
@@ -22,10 +23,10 @@ class File {
             switch ($this->file['error']) {
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
-                    throw new FileException('El fichero es demasiado grande');
+                    throw new FileException(ERRORES[UPLOAD_ERR_FORM_SIZE]);
                     break;
                 case UPLOAD_ERR_PARTIAL:
-                    throw new FileException('No se ha podido subir el fichero completo');
+                    throw new FileException(ERRORES[UPLOAD_ERR_PARTIAL]);
                     break;
                 default:
                     throw new FileException('No se ha podido subir el fichero');
