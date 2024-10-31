@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../exceptions/fileException.class.php';
-require_once 'utils/errores.php';
+require_once 'utils/const.php';
 
 class File {
     private $file;
@@ -15,7 +15,7 @@ class File {
 
         // Si el fichero no tiene nombre es porque no hemos subido nada
         if (empty($this->file['name'])) {
-            throw new FileException(ERRORES[UPLOAD_ERR_NO_FILE]);
+            throw new FileException(getErrorString(UPLOAD_ERR_NO_FILE));
         }
 
         // Verifica errores durante la subida
@@ -23,20 +23,20 @@ class File {
             switch ($this->file['error']) {
                 case UPLOAD_ERR_INI_SIZE:
                 case UPLOAD_ERR_FORM_SIZE:
-                    throw new FileException(ERRORES[UPLOAD_ERR_FORM_SIZE]);
+                    throw new FileException(getErrorString(UPLOAD_ERR_FORM_SIZE));
                     break;
                 case UPLOAD_ERR_PARTIAL:
-                    throw new FileException(ERRORES[UPLOAD_ERR_PARTIAL]);
+                    throw new FileException(getErrorString(UPLOAD_ERR_PARTIAL));
                     break;
                 default:
-                    throw new FileException('No se ha podido subir el fichero');
+                    throw new FileException(getErrorString('UPLOAD_ERR_DEFAULT'));
                     break;
             }
         }
 
         // Comprueba si el tipo del fichero se soporta en nuestro servidor
         if (in_array($this->file['type'], $arrTypes) === false) {
-            throw new FileException(ERRORES[UPLOAD_ERR_EXTENSION]);
+            throw new FileException(getErrorString(UPLOAD_ERR_EXTENSION));
         }
     }
 
@@ -45,7 +45,7 @@ class File {
 
         // Comprueba que el fichero se haya subido por post
         if (is_uploaded_file($this->file['tmp_name']) === false) {
-            throw new FileException('El archivo no se ha subido mediante el formulario');
+            throw new FileException(getErrorString('UPLOAD_ERR_NO_FORM'));
         }
 
         $this->fileName = $this->file['name'];
@@ -77,7 +77,7 @@ class File {
 
         // Devuelve false si no logra mover el fichero
         if (move_uploaded_file($this->file['tmp_name'], $ruta) === false) {
-            throw new FileException('No se puede mover el fichero a su destino');
+            throw new FileException(getErrorString('UPLOAD_ERR_NO_MOVE'));
         }
     }
 
