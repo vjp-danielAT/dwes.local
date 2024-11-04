@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 18:55:26
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 05-11-2024 a las 00:14:38
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `asociados` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `logo` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL
+  `nombre` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -42,8 +42,8 @@ CREATE TABLE `asociados` (
 
 CREATE TABLE `imagenes` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
   `numVisualizaciones` int(11) NOT NULL DEFAULT 0,
   `numLikes` int(11) NOT NULL DEFAULT 0,
   `numDownloads` int(11) NOT NULL DEFAULT 0
@@ -57,11 +57,11 @@ CREATE TABLE `imagenes` (
 
 CREATE TABLE `mensajes` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `apellidos` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `asunto` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `texto` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellidos` varchar(255) DEFAULT NULL,
+  `asunto` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `texto` text DEFAULT NULL,
   `fecha` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
