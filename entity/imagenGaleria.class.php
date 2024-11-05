@@ -6,17 +6,18 @@ class ImagenGaleria {
     private $numVisualizaciones;
     private $numLikes;
     private $numDownloads;
+    private $id;
     const RUTA_IMAGENES_PORTFOLIO = 'images/index/portfolio/';
     const RUTA_IMAGENES_GALLERY = 'images/index/gallery/';
 
     // Constructor
 
-    public function __construct($nombre, $descripcion, $numVisualizaciones = 0, $numLikes = 0, $numDownloads = 0) {
+    public function __construct($nombre = '', $descripcion = '') {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
-        $this->numVisualizaciones = $numVisualizaciones;
-        $this->numLikes = $numLikes;
-        $this->numDownloads = $numDownloads;
+        $this->numVisualizaciones = rand(500, 1000);
+        $this->numLikes = rand(250, 500);
+        $this->numDownloads = rand(50, 200);
     }
 
     // Funciones para obtener las URL
@@ -69,5 +70,13 @@ class ImagenGaleria {
 
     public function getNumDownloads() {
         return $this->numDownloads;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 }

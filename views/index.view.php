@@ -68,7 +68,9 @@
 
   <!-- Box within partners name and logo -->
 
-  <?php require 'views/partials/partner.part.php' ?>
+  <div class="last-box row">
+    <?php require 'views/partials/partner.part.php' ?>
+  </div>
 
   <!-- End of Box within partners name and logo -->
 

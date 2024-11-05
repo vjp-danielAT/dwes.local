@@ -8,7 +8,7 @@ $imagenes = [];
 
 // Crea un array de objetos ImagenGaleria y les asigna valores por defecto
 for ($i = 1; $i <= 12; $i++) {
-    $imagenes[] = new ImagenGaleria($i . '.jpg', 'descripción imagen ' . $i, rand(500, 1000), rand(250, 500), rand(50, 200));
+    $imagenes[] = new ImagenGaleria($i . '.jpg', 'descripción imagen ' . $i);
 }
 
 // Array de asociados
