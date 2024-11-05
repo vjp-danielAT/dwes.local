@@ -1,9 +1,9 @@
 <?php
 require 'utils/utils.php';
-require_once 'utils/file.class.php';
+require_once 'entity/file.class.php';
 require_once 'entity/imagenGaleria.class.php';
-require_once 'database/connection.class.php';
-require_once 'database/queryBuilder.class.php';
+require_once 'entity/connection.class.php';
+require_once 'entity/queryBuilder.class.php';
 
 $error = '';
 
