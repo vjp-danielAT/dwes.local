@@ -4,20 +4,24 @@ require_once 'entity/file.class.php';
 require_once 'entity/imagenGaleria.class.php';
 require_once 'entity/connection.class.php';
 require_once 'entity/queryBuilder.class.php';
+require_once 'entity/imagenGaleriaRepository.class.php';
 
 $error = '';
 
 try {
 
 	// Crea una conexión con la BBDD
-	$connection = Connection::make();
+	$config = require_once 'utils/config.php';
+	App::bind('config', $config);
+	$connection = App::getConnection();
+
+	/* Objeto ImagenGaleriaRepository, usado para realizar operaciones
+	INSERT y SELECT con la BBDD */
+	$imagenRepository = new ImagenGaleriaRepository();
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		$descripcion = trim(htmlspecialchars($_POST['descripcion']));
-		$numVisualizaciones = rand(500, 1000);
-        $numLikes = rand(250, 500);
-        $numDownloads = rand(50, 200);
 
 		$tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png',];
 
@@ -26,30 +30,15 @@ try {
 		$imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
 		$imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
 
-		// Sentencias SQL
-		$sql = 'INSERT INTO imagenes (nombre, descripcion, numVisualizaciones, numLikes, numDownloads) 
-		VALUES (:nombre, :descripcion, :numVisualizaciones, :numLikes, :numDownloads)';
-		$pdo = $connection->prepare($sql);
-		$parametros = [
-			':nombre' => $imagen->getFileName(),
-			':descripcion' => $descripcion,
-			':numVisualizaciones' => $numVisualizaciones,
-			':numLikes' => $numLikes,
-			':numDownloads' => $numDownloads
-		];
-
-		if ($pdo->execute($parametros)) {
-			$mensaje = 'Datos enviados';
-		} else {
-			$error = 'No se ha podido guardar la imagen en la base de datos';
-		}
+		// Sentencias SQL de tipo INSERT
+		$imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion);
+		$imagenRepository->save($imagenGaleria);
+		$mensaje = 'Imagen guardada';
 	}
-
-	$consultaSelect = new QueryBuilder($connection);
-	$imagenes = $consultaSelect->findAll('imagenes', 'ImagenGaleria');
-
-} catch (FileException | QueryException $exc) {
+} catch (FileException | QueryException | AppException $exc) {
 	$error = $exc->getMessage();
+} finally {
+	$imagenes = $imagenRepository->findAll();
 }
 
 require 'views/gallery.view.php';

@@ -1,6 +1,8 @@
 <?php
 
-class ImagenGaleria {
+require_once 'entity/iEntity.class.php';
+
+class ImagenGaleria implements iEntity {
     private $nombre;
     private $descripcion;
     private $numVisualizaciones;
@@ -18,6 +20,18 @@ class ImagenGaleria {
         $this->numVisualizaciones = rand(500, 1000);
         $this->numLikes = rand(250, 500);
         $this->numDownloads = rand(50, 200);
+    }
+
+    // Devuelve el objeto como un array
+
+    public function toArray() {
+        return [
+            'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'numVisualizaciones' => $this->numVisualizaciones,
+            'numLikes' => $this->numLikes,
+            'numDownloads' => $this->numDownloads
+        ];
     }
 
     // Funciones para obtener las URL
