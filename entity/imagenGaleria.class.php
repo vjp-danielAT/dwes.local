@@ -5,6 +5,7 @@ require_once 'entity/iEntity.class.php';
 class ImagenGaleria implements iEntity {
     private $nombre;
     private $descripcion;
+    private $categoria;
     private $numVisualizaciones;
     private $numLikes;
     private $numDownloads;
@@ -14,9 +15,10 @@ class ImagenGaleria implements iEntity {
 
     // Constructor
 
-    public function __construct($nombre = '', $descripcion = '') {
+    public function __construct($nombre = '', $descripcion = '', $categoria = 0) {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
+        $this->categoria = $categoria;
         $this->numVisualizaciones = rand(500, 1000);
         $this->numLikes = rand(250, 500);
         $this->numDownloads = rand(50, 200);
@@ -28,6 +30,7 @@ class ImagenGaleria implements iEntity {
         return [
             'nombre' => $this->nombre,
             'descripcion' => $this->descripcion,
+            'categoria' => $this->categoria,
             'numVisualizaciones' => $this->numVisualizaciones,
             'numLikes' => $this->numLikes,
             'numDownloads' => $this->numDownloads
@@ -44,50 +47,30 @@ class ImagenGaleria implements iEntity {
         return self::RUTA_IMAGENES_GALLERY . $this->nombre;
     }
 
-    // Getters y Setters
-
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
+    // Getters
 
     public function getNombre() {
         return $this->nombre;
-    }
-
-    public function setDescripcion($descripcion) {
-        $this->descripcion = $descripcion;
     }
 
     public function getDescripcion() {
         return $this->descripcion;
     }
 
-    public function setNumVisualizaciones($numVisualizaciones) {
-        $this->numVisualizaciones = $numVisualizaciones;
+    public function getCategoria() {
+        return $this->categoria;
     }
 
     public function getNumVisualizaciones() {
         return $this->numVisualizaciones;
     }
 
-    public function setNumLikes($numLikes) {
-        $this->numLikes = $numLikes;
-    }
-
     public function getNumLikes() {
         return $this->numLikes;
     }
 
-    public function setNumDownloads($numDownloads) {
-        $this->numDownloads = $numDownloads;
-    }
-
     public function getNumDownloads() {
         return $this->numDownloads;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
     }
 
     public function getId() {
