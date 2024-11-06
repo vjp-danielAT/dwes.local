@@ -6,7 +6,7 @@
 <div id="galeria">
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-            <h1>GALERÍA</h1>
+            <h1 style="margin-top: 70px;">GALERÍA</h1>
             <hr>
 
             <!-- Muestra el mensaje de que todo ha ido bien o el error correspondiente -->
@@ -75,7 +75,7 @@
                                     title="<?= $imagen->getDescripcion() ?>"
                                     width="100px">
                                 </td>
-                                <td><?= $imagen->getCategoria() ?></td>
+                                <td><?= $imagenRepository->getCategoria($imagen)->getNombre() ?></td>
                                 <td><?= $imagen->getNumVisualizaciones() ?></td>
                                 <td><?= $imagen->getNumLikes() ?></td>
                                 <td><?= $imagen->getNumDownloads() ?></td>

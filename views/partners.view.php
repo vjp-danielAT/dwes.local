@@ -2,7 +2,7 @@
 
 <?php include __DIR__ . '/partials/nav.part.php' ?>
 
-<p>
+<p style="margin-top: 70px;">
     <?php require 'views/partials/partner.part.php' ?>
 </p>
 
