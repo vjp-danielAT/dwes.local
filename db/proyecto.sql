@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2024 a las 18:50:50
+-- Tiempo de generación: 07-11-2024 a las 19:02:49
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -51,7 +51,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
-(1, 'Categoría 1', 11),
+(1, 'Categoría 1', 0),
 (2, 'Categoría 2', 0),
 (3, 'Categoría 3', 0);
 
@@ -70,23 +70,6 @@ CREATE TABLE `imagenes` (
   `numDownloads` int(11) NOT NULL DEFAULT 0,
   `categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `imagenes`
---
-
-INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `numLikes`, `numDownloads`, `categoria`) VALUES
-(1, 'mario.jpg', 'Aumentar categoría', 657, 464, 93, 1),
-(2, 'mario(1).jpg', 'Aumentar categoría', 723, 303, 110, 1),
-(3, 'mario(2).jpg', 'Aumentar categoría', 778, 342, 134, 1),
-(4, 'mario(3).jpg', 'Aumentar categoría', 633, 260, 122, 1),
-(5, 'mario(4).jpg', 'Aumentar categoría', 538, 421, 183, 1),
-(6, 'mario(5).jpg', 'Aumentar categoría', 988, 461, 126, 1),
-(7, 'mario(6).jpg', 'Aumentar categoría', 774, 409, 57, 1),
-(8, 'hugo.jpg', '', 668, 365, 191, 1),
-(9, 'hugo(1).jpg', '', 619, 478, 192, 1),
-(10, 'hugo(2).jpg', '', 904, 287, 134, 1),
-(11, 'jose.jpg', '', 502, 415, 196, 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +136,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
