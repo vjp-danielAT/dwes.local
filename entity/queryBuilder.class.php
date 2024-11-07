@@ -63,4 +63,46 @@ abstract class QueryBuilder {
             throw new QueryException('Error al insertar en la BD');
         }
     }
+
+    // Realiza una transacción
+    public function transaccion($ejecutarSQL) {
+        try {
+            $this->connection->beginTransaction();
+            $ejecutarSQL();
+            $this->connection->commit();
+        } catch (PDOException) {
+            $this->connection->rollBack();
+            throw new QueryException('No se ha podido realizar la operación');
+        }
+    }
+
+    // Actualiza los valores de la BBDD
+    public function update($entidad) {
+        try {
+            $parametros = $entidad->toArray();
+            $claves = array_keys($parametros);
+
+            $sql = 'UPDATE ' . $this->tabla .
+            ' SET ' . $this->getUpdates($claves) .
+            ' WHERE id=:id';
+
+            $pdo = $this->connection->prepare($sql);
+            $pdo->execute($parametros);
+        } catch (PDOException) {
+            throw new QueryException('Error al actualizar');
+        }
+    }
+
+    // Retorna un string con todos los parámetros a actualizar
+    private function getUpdates($claves) {
+        $updates = [];
+
+        foreach ($claves as $clave) {
+            if ($clave !== 'id') {
+                $updates[] = $clave . '=:' . $clave;
+            }
+        }
+
+        return implode(', ', $updates);
+    }
 }

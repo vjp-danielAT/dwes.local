@@ -37,4 +37,10 @@ class Categoria implements IEntity {
     public function getNumImagenes() {
         return $this->numImagenes;
     }
+
+    // Setter de numImagenes
+
+    public function setNumImagenes($numImagenes) {
+        $this->numImagenes = $numImagenes;
+    }
 }

@@ -35,7 +35,7 @@ try {
 
 		// Sentencias SQL de tipo INSERT
 		$imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
-		$imagenRepository->save($imagenGaleria);
+		$imagenRepository->guardar($imagenGaleria);
 		$mensaje = 'Imagen guardada';
 	}
 } catch (FileException | QueryException | AppException $exc) {
