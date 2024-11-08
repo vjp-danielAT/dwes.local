@@ -23,7 +23,6 @@ try {
 	// Crea una conexión con la BBDD
 	$config = require_once 'utils/config.php';
 	App::bind('config', $config);
-	$connection = App::getConnection();
 
     /* ImagenRepository, usada para realizar operaciones
 	INSERT y SELECT con la BBDD */
