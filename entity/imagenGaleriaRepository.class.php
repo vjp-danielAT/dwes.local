@@ -14,7 +14,7 @@ class ImagenGaleriaRepository extends QueryBuilder {
         return $categoriaRepository->find($imagenGaleria->getCategoria());
     }
 
-    /* Guarda una imagen en la galería usando transacciones */
+    /* Guarda una imagen en la BBDD usando transacciones */
     public function guardar($imagenGaleria) {
         $guardarImagen = function() use ($imagenGaleria) {
             $categoria = $this->getCategoria($imagenGaleria);

@@ -2,15 +2,44 @@
 
 require 'utils/utils.php';
 require_once 'entity/partner.class.php';
+require_once 'entity/partnerRepository.class.php';
+require_once 'entity/file.class.php';
+require_once 'entity/imagenGaleria.class.php';
+require_once 'entity/connection.class.php';
 
-// Array de asociados
-$nombresAsociados = ['Mario', 'Hugo', 'Jose', 'Adri', 'Iker'];
-$asociados = [];
+$error = '';
 
-for ($i = 0; $i < sizeof($nombresAsociados); $i++) {
-    $asociados[] = new Partner($nombresAsociados[$i]);
+try {
+
+	// Crea una conexión con la BBDD
+	$config = require_once 'utils/config.php';
+	App::bind('config', $config);
+
+	/* Objeto Repository, usado para realizar operaciones
+	INSERT y SELECT con la BBDD */
+    $partnerRepository = new PartnerRepository();
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $nombre = trim(htmlspecialchars($_POST['nombre']));
+		$descripcion = trim(htmlspecialchars($_POST['descripcion']));
+
+		$tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png',];
+
+		// Crea el fichero, lo guarda en la galería y lo copia en el directorio 'portfolio'
+		$logo = new File('logo', $tiposAceptados);
+		$logo->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
+		$logo->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
+
+		// Sentencias SQL de tipo INSERT
+        $partner = new Partner($nombre, $logo->getFileName(), $descripcion);
+        $partnerRepository->guardar($partner);
+		$mensaje = 'Asociado guardado';
+	}
+} catch (FileException | QueryException | AppException $exc) {
+	$error = $exc->getMessage();
+} finally {
+	$asociados = $partnerRepository->findAll();
 }
-
-$tresAsociados = extraer3Aleatorios($asociados);
 
 require 'views/partners.view.php';

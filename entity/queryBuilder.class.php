@@ -15,7 +15,7 @@ abstract class QueryBuilder {
         $this->clase = $clase;
     }
 
-    // Ejecuta una sentencia SQL
+    // Ejecuta una consulta SQL
     private function executeQuery($sql) {
         $pdo = $this->connection->prepare($sql);
         
@@ -54,7 +54,7 @@ abstract class QueryBuilder {
             $claves = array_keys($parametros);
             
             $sql = 'INSERT INTO ' . $this->tabla .
-            ' (' . implode(' ,', $claves) . ') ' .
+            ' (' . implode(', ', $claves) . ') ' .
             'VALUES (:' . implode(', :', $claves) . ')';
 
             $pdo = $this->connection->prepare($sql);

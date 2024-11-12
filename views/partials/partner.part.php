@@ -9,7 +9,7 @@
         <div class="text-muted text-left">
             <?php foreach ($tresAsociados as $asociado): ?>
                 <ul class="list-inline">
-                    <li><img src="images/index/<?= $asociado->getLogo() ?>" class="miAsociado" title="<?= $asociado->getDescripcion() ?>" alt="<?= $asociado->getDescripcion() ?>"></li>
+                    <li><img src="<?= $asociado->getUrlLogo() ?>" class="miAsociado" title="<?= $asociado->getDescripcion() ?>" alt="<?= $asociado->getDescripcion() ?>"></li>
                     <li><?= $asociado->getNombre() ?></li>
                 </ul>
             <?php endforeach; ?>
