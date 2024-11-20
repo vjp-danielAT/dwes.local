@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2024 a las 23:52:45
+-- Tiempo de generación: 20-11-2024 a las 01:52:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -99,6 +99,13 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `nombre`, `apellidos`, `asunto`, `email`, `texto`, `fecha`) VALUES
+(1, 'Daniel', 'Alcon', 'Prueba nuevo mensaje', 'dani@gmail.com', 'Holaaaaaaaaaaaa', '2024-11-13 19:50:21');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -153,7 +160,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
