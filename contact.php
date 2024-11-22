@@ -3,18 +3,17 @@
 require 'utils/utils.php';
 require_once 'classes/entity/mensaje.class.php';
 require_once 'classes/repository/mensajeRepository.class.php';
-require_once 'classes/database/connection.class.php';
 
 $errores = [];
 
 try {
 
-    // Crea una conexión con la BBDD
+    // Crea una conexión con la BD
     $config = require_once 'utils/config.php';
     App::bind('config', $config);
 
     /* Objeto Repository, usado para realizar operaciones
-	INSERT y SELECT con la BBDD */
+	INSERT y SELECT con la BD */
     $mensajeRepository = new MensajeRepository();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -49,9 +48,11 @@ try {
             'Mensaje' => $mensaje
         ];
 
-        // Sentencias SQL de tipo INSERT
-        $mensajeObj = new Mensaje($nombre, $apellido, $asunto, $correo, $mensaje);
-        $mensajeRepository->guardar($mensajeObj);
+        if (empty($errores)) {
+            // Sentencias SQL de tipo INSERT
+            $mensajeObj = new Mensaje($nombre, $apellido, $asunto, $correo, $mensaje);
+            $mensajeRepository->guardar($mensajeObj);
+        }
     }
 } catch (QueryException | AppException $exc) {
     $errores[] = $exc->getMessage();

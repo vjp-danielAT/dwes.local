@@ -3,6 +3,7 @@
 require_once 'classes/exception/queryException.class.php';
 require_once 'classes/exception/notFoundException.class.php';
 require_once 'classes/database/app.class.php';
+require_once 'utils/const.php';
 
 abstract class QueryBuilder {
     private $connection;
@@ -20,20 +21,20 @@ abstract class QueryBuilder {
         $pdo = $this->connection->prepare($sql);
         
         if ($pdo->execute() === false) {
-            throw new QueryException('No se ha podido ejecutar la consulta');
+            throw new QueryException(getErrorString('QUERY_ERROR'));
         }
 
         // Retorna un array de objetos de la clase indicada
         return $pdo->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->clase);
     }
 
-    // Retorna un único elemento de una tabla de la BBDD
+    // Retorna un único elemento de una tabla de la BD
     public function find($id) {
         $sql = "SELECT * FROM $this->tabla WHERE id=$id";
         $resultado = $this->executeQuery($sql);
 
         if (empty($resultado)) {
-            throw new NotFoundException('No se ha encontrado ningún elemento con el id ' . $id);
+            throw new NotFoundException(getErrorString('ITEM_NOT_FOUND') . $id);
         }
 
         /* Como solo buscamos un elemento, nos retornamos
@@ -41,13 +42,13 @@ abstract class QueryBuilder {
         return $resultado[0];
     }
 
-    // Selecciona todos los elementos de una tabla de la BBDD
+    // Selecciona todos los elementos de una tabla de la BD
     public function findAll() {
         $sql = "SELECT * FROM $this->tabla";
         return $this->executeQuery($sql);
     }
 
-    // Realiza un insert en la BBDD
+    // Realiza un insert en la BD
     public function save($entidad) {
         try {
             $parametros = $entidad->toArray();
@@ -60,7 +61,7 @@ abstract class QueryBuilder {
             $pdo = $this->connection->prepare($sql);
             $pdo->execute($parametros);
         } catch (QueryException) {
-            throw new QueryException('Error al insertar en la BD');
+            throw new QueryException(getErrorString('INSERT_ERROR'));
         }
     }
 
@@ -72,11 +73,11 @@ abstract class QueryBuilder {
             $this->connection->commit();
         } catch (PDOException) {
             $this->connection->rollBack();
-            throw new QueryException('No se ha podido realizar la operación');
+            throw new QueryException(getErrorString('TRANSACTION_ERROR'));
         }
     }
 
-    // Actualiza los valores de la BBDD
+    // Actualiza los valores de una fila de la BD
     public function update($entidad) {
         try {
             $parametros = $entidad->toArray();
@@ -89,7 +90,7 @@ abstract class QueryBuilder {
             $pdo = $this->connection->prepare($sql);
             $pdo->execute($parametros);
         } catch (PDOException) {
-            throw new QueryException('Error al actualizar');
+            throw new QueryException(getErrorString('UPDATE_ERROR'));
         }
     }
 

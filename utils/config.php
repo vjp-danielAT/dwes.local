@@ -1,5 +1,7 @@
 <?php
 
+// Retorna un array con distintas configuraciones del proyecto
+
 return [
     'database' => [
         'username' => 'userProyecto',

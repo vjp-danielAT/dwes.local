@@ -17,7 +17,7 @@ class Partner implements IEntity {
         $this->descripcion = $descripcion;
     }
 
-    // Devuelve el objeto como un array
+    // Devuelve los datos del objeto como un array
 
     public function toArray() {
         return [

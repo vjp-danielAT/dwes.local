@@ -5,18 +5,17 @@ require_once 'classes/entity/partner.class.php';
 require_once 'classes/repository/partnerRepository.class.php';
 require_once 'classes/others/file.class.php';
 require_once 'classes/entity/imagenGaleria.class.php';
-require_once 'classes/database/connection.class.php';
 
 $error = '';
 
 try {
 
-	// Crea una conexión con la BBDD
+	// Crea una conexión con la BD
 	$config = require_once 'utils/config.php';
 	App::bind('config', $config);
 
 	/* Objeto Repository, usado para realizar operaciones
-	INSERT y SELECT con la BBDD */
+	INSERT y SELECT con la BD */
     $partnerRepository = new PartnerRepository();
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {

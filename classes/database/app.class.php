@@ -2,6 +2,7 @@
 
 require_once 'classes/exception/appException.class.php';
 require_once 'classes/database/connection.class.php';
+require_once 'utils/const.php';
 
 class App {
     // Almacena objetos de nuestro proyecto
@@ -15,7 +16,7 @@ class App {
     // Obtiene un objeto del container
     public static function get($clave)  {
         if (!array_key_exists($clave, static::$container)) {
-            throw new AppException('No se ha encontrado la clave en el contenedor');
+            throw new AppException(getErrorString('KEY_NOT_FOUND'));
         }
 
         return static::$container[$clave];

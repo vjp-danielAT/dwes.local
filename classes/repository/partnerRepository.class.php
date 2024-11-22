@@ -7,7 +7,7 @@ class PartnerRepository extends QueryBuilder {
         parent::__construct('asociados', 'Partner');
     }
 
-    /* Guarda un asociado en la BBDD usando transacciones */
+    // Guarda un asociado en la BD usando transacciones
     public function guardar($asociado) {
         $guardarAsociado = function() use ($asociado) {
             $this->save($asociado);

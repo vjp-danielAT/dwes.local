@@ -7,7 +7,7 @@ class MensajeRepository extends QueryBuilder {
         parent::__construct('mensajes', 'Mensaje');
     }
 
-    /* Guarda un mensaje en la BBDD usando transacciones */
+    // Guarda un mensaje en la BD usando transacciones
     public function guardar($mensaje) {
         $guardarMensaje = function() use ($mensaje) {
             $this->save($mensaje);

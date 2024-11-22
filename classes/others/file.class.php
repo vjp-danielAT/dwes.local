@@ -99,6 +99,7 @@ class File {
         }
     }
 
+    // Getter del atributo fileName
     public function getFileName() {
         return $this->fileName;
     }
