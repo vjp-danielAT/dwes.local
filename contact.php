@@ -1,9 +1,9 @@
 <?php
 
 require 'utils/utils.php';
-require_once 'entity/mensaje.class.php';
-require_once 'entity/mensajeRepository.class.php';
-require_once 'entity/connection.class.php';
+require_once 'classes/entity/mensaje.class.php';
+require_once 'classes/repository/mensajeRepository.class.php';
+require_once 'classes/database/connection.class.php';
 
 $errores = [];
 

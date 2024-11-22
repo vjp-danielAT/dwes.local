@@ -1,6 +1,6 @@
 <?php
 
-require_once 'exceptions/fileException.class.php';
+require_once 'classes/exception/fileException.class.php';
 require_once 'utils/const.php';
 
 class File {

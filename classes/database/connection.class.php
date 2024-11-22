@@ -1,6 +1,6 @@
 <?php
 
-require_once 'entity/app.class.php';
+require_once 'classes/database/app.class.php';
 
 class Connection {
     public static function make() {

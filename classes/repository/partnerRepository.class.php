@@ -1,6 +1,6 @@
 <?php
 
-require_once 'entity/queryBuilder.class.php';
+require_once 'classes/database/queryBuilder.class.php';
 
 class PartnerRepository extends QueryBuilder {
     public function __construct() {

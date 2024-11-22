@@ -1,7 +1,7 @@
 <?php
 
-require_once 'entity/queryBuilder.class.php';
-require_once 'entity/categoriaRepository.class.php';
+require_once 'classes/database/queryBuilder.class.php';
+require_once 'classes/repository/categoriaRepository.class.php';
 
 class ImagenGaleriaRepository extends QueryBuilder {
     public function __construct() {

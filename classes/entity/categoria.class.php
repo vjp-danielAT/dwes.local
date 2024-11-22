@@ -1,6 +1,6 @@
 <?php
 
-require_once 'entity/iEntity.class.php';
+require_once 'classes/interface/iEntity.class.php';
 
 class Categoria implements IEntity {
     private $id;

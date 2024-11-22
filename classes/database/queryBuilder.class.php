@@ -1,8 +1,8 @@
 <?php
 
-require_once 'exceptions/queryException.class.php';
-require_once 'exceptions/notFoundException.class.php';
-require_once 'entity/app.class.php';
+require_once 'classes/exception/queryException.class.php';
+require_once 'classes/exception/notFoundException.class.php';
+require_once 'classes/database/app.class.php';
 
 abstract class QueryBuilder {
     private $connection;

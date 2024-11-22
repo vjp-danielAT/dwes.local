@@ -1,6 +1,7 @@
 <?php
 
-require_once 'exceptions/appException.class.php';
+require_once 'classes/exception/appException.class.php';
+require_once 'classes/database/connection.class.php';
 
 class App {
     // Almacena objetos de nuestro proyecto
