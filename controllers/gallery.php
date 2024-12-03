@@ -10,10 +10,6 @@ $error = '';
 
 try {
 
-	// Crea una conexión con la BD
-	$config = require_once 'utils/config.php';
-	App::bind('config', $config);
-
 	/* Objetos Repository, usados para realizar operaciones
 	INSERT y SELECT con la BD */
 	$imagenRepository = new ImagenGaleriaRepository();

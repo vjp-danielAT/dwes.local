@@ -8,10 +8,6 @@ $errores = [];
 
 try {
 
-    // Crea una conexión con la BD
-    $config = require_once 'utils/config.php';
-    App::bind('config', $config);
-
     /* Objeto Repository, usado para realizar operaciones
 	INSERT y SELECT con la BD */
     $mensajeRepository = new MensajeRepository();
