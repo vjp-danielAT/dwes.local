@@ -4,8 +4,10 @@
 require 'utils/bootstrap.php';
 
 // Redirección de rutas amigables del proyecto
-$routes = require 'utils/routes.php';
+$router = new Router('utils/routes.php');
 
-$uri = trim($_SERVER['REQUEST_URI'], '/');
-
-require $routes[$uri];
+try {
+    require $router->redirect();
+} catch (NotFoundException $exc) {
+    die($exc->getMessage());
+}
