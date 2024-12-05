@@ -14,24 +14,7 @@ try {
 	INSERT y SELECT con la BD */
 	$imagenRepository = new ImagenGaleriaRepository();
 	$categoriaRepository = new CategoriaRepository();
-
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-		$descripcion = trim(htmlspecialchars($_POST['descripcion']));
-		$categoria = trim(htmlspecialchars($_POST['categoria']));
-
-		$tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png',];
-
-		// Crea el fichero, lo guarda en la galería y lo copia en el directorio 'portfolio'
-		$imagen = new File('imagen', $tiposAceptados);
-		$imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
-		$imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
-
-		// Sentencias SQL de tipo INSERT
-		$imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
-		$imagenRepository->guardar($imagenGaleria);
-		$mensaje = 'Imagen guardada';
-	}
+	
 } catch (FileException | QueryException | AppException $exc) {
 	$error = $exc->getMessage();
 } finally {
