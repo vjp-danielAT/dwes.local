@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\database;
+
 require_once 'classes/exception/appException.class.php';
 require_once 'classes/database/connection.class.php';
 require_once 'utils/const.php';

@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\others;
+
 require_once 'classes/exception/notFoundException.class.php';
 
 class Router {

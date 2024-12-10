@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\database;
+
 require_once 'classes/exception/queryException.class.php';
 require_once 'classes/exception/notFoundException.class.php';
 require_once 'classes/database/app.class.php';

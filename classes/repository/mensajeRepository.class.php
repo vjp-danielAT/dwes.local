@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\repository;
+
 require_once 'classes/database/queryBuilder.class.php';
 
 class MensajeRepository extends QueryBuilder {

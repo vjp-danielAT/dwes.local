@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\database;
+
 class Connection {
     public static function make() {
 

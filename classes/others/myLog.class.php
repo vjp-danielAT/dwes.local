@@ -1,5 +1,7 @@
 <?php
 
+namespace proyecto\classes\others;
+
 class MyLog {
     private $log;
 
