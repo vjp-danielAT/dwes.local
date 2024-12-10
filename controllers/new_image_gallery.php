@@ -28,7 +28,10 @@ try {
 		// Sentencias SQL de tipo INSERT
 		$imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
 		$imagenRepository->guardar($imagenGaleria);
-		$mensaje = 'Imagen guardada';
+		$mensaje = 'Se ha guardado una nueva imagen: ' . $imagenGaleria->getNombre();
+
+		// Guarda en el log del proyecto el mensaje
+		App::get('logger')->generarLog($mensaje);
 	}
 } catch (FileException | QueryException | AppException $exc) {
 	die($exc->getMessage());
