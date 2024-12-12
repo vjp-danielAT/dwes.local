@@ -2,11 +2,12 @@
 
 namespace proyecto\classes\repository;
 
-require_once 'classes/database/queryBuilder.class.php';
+use proyecto\classes\database\QueryBuilder;
+use proyecto\classes\entity\Categoria;
 
 class CategoriaRepository extends QueryBuilder {
     public function __construct() {
-        parent::__construct('categorias', 'Categoria');
+        parent::__construct('categorias', Categoria::class);
     }
 
     // Incrementa el número de imágenes de la categoría

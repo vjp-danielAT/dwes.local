@@ -2,7 +2,7 @@
 
 namespace proyecto\classes\others;
 
-require_once 'classes/exception/fileException.class.php';
+use proyecto\classes\exception\FileException;
 require_once 'utils/const.php';
 
 class File {

@@ -2,7 +2,7 @@
 
 namespace proyecto\classes\others;
 
-require_once 'classes/exception/notFoundException.class.php';
+use proyecto\classes\exception\NotFoundException;
 
 class Router {
     private $uri;

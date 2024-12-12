@@ -2,12 +2,12 @@
 
 namespace proyecto\classes\repository;
 
-require_once 'classes/database/queryBuilder.class.php';
-require_once 'classes/repository/categoriaRepository.class.php';
+use proyecto\classes\database\QueryBuilder;
+use proyecto\classes\entity\ImagenGaleria;
 
 class ImagenGaleriaRepository extends QueryBuilder {
     public function __construct() {
-        parent::__construct('imagenes', 'ImagenGaleria');
+        parent::__construct('imagenes', ImagenGaleria::class);
     }
 
     // Retorna el objeto Categoría de la categoría de una imagen

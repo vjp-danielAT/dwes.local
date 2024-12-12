@@ -1,5 +1,8 @@
 <?php
 
+use proyecto\classes\others\Router;
+use proyecto\classes\exception\NotFoundException;
+
 // Carga configuraciones por defecto del proyecto
 require 'utils/bootstrap.php';
 

@@ -1,6 +1,8 @@
 <?php
 
 namespace proyecto\classes\database;
+use PDO;
+use PDOException;
 
 class Connection {
     public static function make() {

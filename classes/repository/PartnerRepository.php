@@ -2,11 +2,12 @@
 
 namespace proyecto\classes\repository;
 
-require_once 'classes/database/queryBuilder.class.php';
+use proyecto\classes\database\QueryBuilder;
+use proyecto\classes\entity\Partner;
 
 class PartnerRepository extends QueryBuilder {
     public function __construct() {
-        parent::__construct('asociados', 'Partner');
+        parent::__construct('asociados', Partner::class);
     }
 
     // Guarda un asociado en la BD usando transacciones

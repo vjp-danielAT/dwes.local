@@ -1,9 +1,12 @@
 <?php
 require 'utils/utils.php';
-require_once 'classes/others/file.class.php';
-require_once 'classes/entity/imagenGaleria.class.php';
-require_once 'classes/repository/imagenGaleriaRepository.class.php';
-require_once 'classes/entity/categoria.class.php';
+use proyecto\classes\repository\ImagenGaleriaRepository;
+use proyecto\classes\others\File;
+use proyecto\classes\entity\ImagenGaleria;
+use proyecto\classes\database\App;
+use proyecto\classes\exception\FileException;
+use proyecto\classes\exception\QueryException;
+use proyecto\classes\exception\AppException;
 
 $error = '';
 

@@ -1,10 +1,9 @@
 <?php
 require 'utils/utils.php';
-require_once 'classes/others/file.class.php';
-require_once 'classes/entity/imagenGaleria.class.php';
-require_once 'classes/repository/imagenGaleriaRepository.class.php';
-require_once 'classes/entity/categoria.class.php';
-require_once 'classes/repository/categoriaRepository.class.php';
+use proyecto\classes\repository\ImagenGaleriaRepository;
+use proyecto\classes\repository\CategoriaRepository;
+use proyecto\classes\exception\QueryException;
+use proyecto\classes\exception\AppException;
 
 $error = '';
 
@@ -15,7 +14,7 @@ try {
 	$imagenRepository = new ImagenGaleriaRepository();
 	$categoriaRepository = new CategoriaRepository();
 	
-} catch (FileException | QueryException | AppException $exc) {
+} catch (QueryException | AppException $exc) {
 	$error = $exc->getMessage();
 } finally {
 	$imagenes = $imagenRepository->findAll();

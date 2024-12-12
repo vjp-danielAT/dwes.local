@@ -1,8 +1,10 @@
 <?php
 
 require 'utils/utils.php';
-require_once 'classes/entity/mensaje.class.php';
-require_once 'classes/repository/mensajeRepository.class.php';
+use proyecto\classes\repository\MensajeRepository;
+use proyecto\classes\entity\Mensaje;
+use proyecto\classes\exception\QueryException;
+use proyecto\classes\exception\AppException;
 
 $errores = [];
 

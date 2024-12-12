@@ -2,7 +2,7 @@
 
 namespace proyecto\classes\entity;
 
-require_once 'classes/interface/iEntity.class.php';
+use proyecto\classes\interface\IEntity;
 
 class ImagenGaleria implements iEntity {
     private $nombre;

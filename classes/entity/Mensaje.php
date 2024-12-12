@@ -2,7 +2,8 @@
 
 namespace proyecto\classes\entity;
 
-require_once 'classes/interface/iEntity.class.php';
+use proyecto\classes\interface\IEntity;
+use DateTime;
 
 class Mensaje implements IEntity {
     private $id;

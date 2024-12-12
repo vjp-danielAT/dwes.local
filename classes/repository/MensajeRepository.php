@@ -2,11 +2,12 @@
 
 namespace proyecto\classes\repository;
 
-require_once 'classes/database/queryBuilder.class.php';
+use proyecto\classes\database\QueryBuilder;
+use proyecto\classes\entity\Mensaje;
 
 class MensajeRepository extends QueryBuilder {
     public function __construct() {
-        parent::__construct('mensajes', 'Mensaje');
+        parent::__construct('mensajes', Mensaje::class);
     }
 
     // Guarda un mensaje en la BD usando transacciones

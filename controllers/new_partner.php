@@ -1,10 +1,13 @@
 <?php
 
 require 'utils/utils.php';
-require_once 'classes/entity/partner.class.php';
-require_once 'classes/repository/partnerRepository.class.php';
-require_once 'classes/others/file.class.php';
-require_once 'classes/entity/imagenGaleria.class.php';
+use proyecto\classes\repository\PartnerRepository;
+use proyecto\classes\others\File;
+use proyecto\classes\entity\ImagenGaleria;
+use proyecto\classes\entity\Partner;
+use proyecto\classes\exception\FileException;
+use proyecto\classes\exception\QueryException;
+use proyecto\classes\exception\AppException;
 
 $error = '';
 
